@@ -1,6 +1,6 @@
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react'
-import { Button, ImageBackground, Text, TextInput, View } from 'react-native';
+import { Button, ImageBackground, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { styles } from '../theme/AppTheme';
 
 
@@ -28,14 +28,17 @@ export const Pantalla2Screen = () => {
     return (
         <ImageBackground source={require('../components/img/bg2.jpg')} style={styles.container}>
             <View>
-                <Text style={styles.title}>Division</Text>
-                <Text>Ingrese el primer número</Text>
-                <TextInput placeholder='Número 1' onChangeText={setNum1} keyboardType="numeric"></TextInput>
-                <Text>Ingrese el Segundo número</Text>
-                <TextInput placeholder='Número 2' onChangeText={setNum2} keyboardType="numeric"></TextInput>
-                <Button title='Calcular'
-                    onPress={dividir} />
-                <Text>La division es: {resultado} </Text>
+                <Text style={styles.title}>División</Text>
+                <Text style={styles.TextNumDiv}>Ingrese el primer número</Text>
+                <TextInput style={styles.TextNumDivInput} placeholder='Número 1' onChangeText={setNum1} keyboardType="numeric"></TextInput>
+                <Text style={styles.TextNumDiv}>Ingrese el segundo número</Text>
+                <TextInput style={styles.TextNumDivInput} placeholder='Número 2' onChangeText={setNum2} keyboardType="numeric"></TextInput>
+                <TouchableOpacity
+                                onPress={dividir}
+                                style={styles.btnAcceder}>
+                                <Text style={styles.buttonAccederText} >Dividir</Text>
+                            </TouchableOpacity>
+                <Text style={styles.TextNumDiv}>La división es: {resultado} </Text>
             </View>
         </ImageBackground>
     )
